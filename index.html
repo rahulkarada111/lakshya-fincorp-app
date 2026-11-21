@@ -4,69 +4,250 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#102b52">
+<meta name="theme-color" content="#0755b9">
 <title>Lakshya Fincorp</title>
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f1f4f9;color:#172033}
-header{background:#102b52;color:white;padding:16px;display:flex;align-items:center;gap:12px}
-header img{width:48px;height:48px;object-fit:contain;background:white;border-radius:8px}
-.brand{font-size:19px;font-weight:bold}
-main{max-width:650px;margin:auto;padding:16px}
-.card{background:white;border-radius:14px;padding:20px;margin-bottom:16px;box-shadow:0 2px 10px #0001}
-h2,h3{color:#15365f;margin-top:0}
-input,select{width:100%;padding:13px;margin:8px 0 14px;border:1px solid #ccd3df;border-radius:8px;font-size:15px}
-label{font-size:14px;font-weight:bold}
-button{background:#164b83;color:white;border:0;padding:12px 16px;border-radius:8px;font-size:14px;cursor:pointer;margin:4px 2px}
-.secondary{background:#64748b}
-.danger{background:#b42318}
-.menu{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.menu button{min-height:65px}
-.hidden{display:none}
-.small{font-size:12px;color:#64748b;line-height:1.5}
+body{margin:0;font-family:Arial,sans-serif;background:#edf3fb;color:#172b4d}
+header{background:linear-gradient(120deg,#0645a5,#0878e8);color:white;padding:13px 16px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:5}
+header img{width:54px;height:54px;object-fit:contain;background:white;border-radius:10px;padding:3px}
+.brand{font-size:18px;font-weight:bold}
+header small{display:block;font-size:11px;margin-top:4px}
+main{max-width:700px;margin:auto;padding:14px}
+.card{background:white;border-radius:16px;padding:17px;margin-bottom:14px;box-shadow:0 3px 12px #18365b12}
+h2{font-size:21px;margin:5px 0 15px;color:#123c79}
+h3{font-size:16px;margin:0 0 12px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #cbd6e5;border-radius:9px;margin:7px 0 13px;font-size:15px;background:white;color:#172b4d}
+label{font-size:13px;font-weight:bold}
+button{border:0;border-radius:9px;padding:12px 15px;background:#075bc5;color:white;font-weight:bold;font-size:14px;cursor:pointer}
+button:active{opacity:.8}
+.secondary{background:#e8f0fc;color:#0755b9}
+.danger{background:#c62828}
+.primary{width:100%;margin-top:8px}
+.hidden{display:none!important}
+.profile{display:flex;align-items:center;gap:12px;background:linear-gradient(120deg,#e8f2ff,#fff);padding:15px;border-radius:14px;margin-bottom:13px}
+.avatar{width:54px;height:54px;border-radius:50%;background:#cde3ff;display:grid;place-items:center;font-size:25px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{padding:15px 8px;text-align:center;border-radius:13px;background:#f4f8ff;border:1px solid #e5edfa}
+.stat strong{display:block;font-size:20px;margin:7px 0;color:#064eaa}
+.stat span{font-size:12px;color:#52647e}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.action{min-height:83px;background:#edf5ff;color:#0755b9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px}
+.action span{font-size:23px}
+.action small{font-size:11px}
+.bottom{position:sticky;bottom:0;background:white;display:flex;justify-content:space-around;padding:10px 3px;border-top:1px solid #dce5f1}
+.bottom button{background:white;color:#174b8c;padding:8px 5px;font-size:11px}
+.item{padding:12px 0;border-bottom:1px solid #e5eaf2;display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:14px}
+.tag{font-size:11px;background:#dff7e8;color:#168342;padding:5px 9px;border-radius:20px}
+.note{font-size:12px;color:#687a91;line-height:1.5}
+.login-logo{display:block;width:120px;height:100px;object-fit:contain;margin:5px auto 12px}
+.progress{height:10px;background:#e6edf7;border-radius:20px;overflow:hidden}
+.progress div{height:100%;width:72%;background:#18a75b}
 </style>
 </head>
 
 <body>
 
 <header>
-<img id="companyLogo" src="logo.png" alt="Company Logo">
+<img id="companyLogo" src="./logo.png?v=2" alt="Company Logo">
+<div>
 <div class="brand" id="companyName">Lakshya Fincorp Pvt. Ltd.</div>
+<small>Trust | Growth | Prosperity</small>
+</div>
 </header>
 
 <main>
 
-<section class="card" id="loginBox">
-<h2>Welcome</h2>
-<h3>Login to Your Account</h3>
+<!-- LOGIN -->
+<section class="card" id="loginPage">
+<img class="login-logo" src="./logo.png?v=2" alt="Lakshya Logo">
+<h2 style="text-align:center">Welcome Back!</h2>
+<p style="text-align:center">Login to Continue</p>
 
-<label>User ID</label>
-<input id="userId" placeholder="Enter User ID">
+<label>Employee ID</label>
+<input id="employeeId" placeholder="Enter Employee ID">
 
 <label>Password</label>
-<input id="password" type="password" placeholder="Enter Password">
+<input id="loginPassword" type="password" placeholder="Enter Password">
 
 <label>Select Role</label>
-<select id="role">
-<option value="Admin">Admin</option>
-<option value="Staff / RO">Staff / RO</option>
-<option value="Manager">Manager</option>
-<option value="Accounts Team">Accounts Team</option>
+<select id="loginRole">
+<option>Staff / RO</option>
+<option>Admin</option>
+<option>Manager</option>
+<option>Accounts Team</option>
 </select>
 
-<button onclick="login()">Login</button>
-<p class="small">Demo interface only. Secure authentication will be connected in the backend development stage.</p>
+<button class="primary" onclick="login()">Login →</button>
+<p class="note">Demo version. Secure authentication will be connected through the backend.</p>
 </section>
 
-<section class="card hidden" id="dashboard">
-<h2 id="welcome">Dashboard</h2>
-<div class="menu" id="menu"></div>
-<button class="secondary" onclick="logout()">Logout</button>
+<!-- DASHBOARD -->
+<section id="dashboard" class="hidden">
+<div class="profile">
+<div class="avatar">👤</div>
+<div>
+<strong id="employeeName">Employee</strong>
+<div id="employeeRole">Collection Executive</div>
+<small>📍 Shivpura Branch</small>
+</div>
+</div>
+
+<div class="stats">
+<div class="stat"><span>Total Members</span><strong id="memberCount">0</strong></div>
+<div class="stat"><span>Total Demand</span><strong>₹25,000</strong></div>
+<div class="stat"><span>Total Collection</span><strong id="totalCollection">₹0</strong></div>
+<div class="stat"><span>Balance Due</span><strong id="balanceDue">₹25,000</strong></div>
+</div>
+
+<div class="card" style="margin-top:14px">
+<h3>Quick Actions</h3>
+<div class="actions" id="quickActions"></div>
+</div>
+
+<div class="card">
+<h3>Collection Progress</h3>
+<div class="progress"><div id="progressBar"></div></div>
+<p class="note" id="progressText">Collection performance</p>
+</div>
 </section>
 
-<section class="card hidden" id="settings">
-<h2>Company Profile Settings</h2>
+<!-- CENTER FORM -->
+<section class="card hidden" id="centerPage">
+<h2>Create Group Center</h2>
+
+<label>Center Name *</label>
+<input id="centerName" placeholder="Enter Center Name">
+
+<label>Branch *</label>
+<input id="branchName" placeholder="Enter Branch Name">
+
+<label>RO Name *</label>
+<input id="roName" placeholder="Enter RO Name">
+
+<label>Village / Area *</label>
+<input id="villageName" placeholder="Enter Village / Area">
+
+<div class="stats">
+<div>
+<label>Meeting Day *</label>
+<select id="meetingDay">
+<option>Monday</option><option>Tuesday</option>
+<option>Wednesday</option><option>Thursday</option>
+<option>Friday</option><option>Saturday</option>
+</select>
+</div>
+<div>
+<label>Meeting Time *</label>
+<input id="meetingTime" type="time" value="11:00">
+</div>
+</div>
+
+<label>Center Address</label>
+<textarea id="centerAddress" placeholder="Enter full address"></textarea>
+
+<button class="primary" onclick="saveCenter()">Save Center</button>
+<button class="secondary" onclick="goHome()">Back</button>
+</section>
+
+<!-- CENTER LIST -->
+<section class="card hidden" id="centerListPage">
+<h2>Centers List</h2>
+<div id="centerList"></div>
+<button class="secondary" onclick="goHome()">Back</button>
+</section>
+
+<!-- MEMBER FORM -->
+<section class="card hidden" id="memberPage">
+<h2>Add New Member</h2>
+
+<label>Member Name *</label>
+<input id="memberName" placeholder="Enter Member Name">
+
+<label>Mobile Number *</label>
+<input id="memberMobile" type="tel" maxlength="10" placeholder="Enter Mobile Number">
+
+<label>Select Center *</label>
+<select id="memberCenter"></select>
+
+<label>Loan Type</label>
+<select id="loanType">
+<option>Group Loan</option>
+<option>Personal Loan</option>
+</select>
+
+<label>Loan Amount</label>
+<input id="loanAmount" type="number" placeholder="Enter Loan Amount">
+
+<label>EMI Frequency</label>
+<select id="emiFrequency">
+<option>Weekly</option>
+<option>Bi-Weekly</option>
+<option>Monthly</option>
+</select>
+
+<button class="primary" onclick="saveMember()">Save Member</button>
+<button class="secondary" onclick="goHome()">Back</button>
+</section>
+
+<!-- MEMBERS LIST -->
+<section class="card hidden" id="membersPage">
+<h2>Members List</h2>
+<input id="memberSearch" placeholder="Search Member..." oninput="showMembers()">
+<div id="membersList"></div>
+<button class="secondary" onclick="goHome()">Back</button>
+</section>
+
+<!-- COLLECTION -->
+<section class="card hidden" id="collectionPage">
+<h2>Collection Entry</h2>
+
+<label>Select Loan Type</label>
+<select id="collectionLoanType">
+<option>Group Loan</option>
+<option>Personal Loan</option>
+</select>
+
+<label>Select Member</label>
+<select id="collectionMember"></select>
+
+<label>Payment Mode</label>
+<select id="paymentMode">
+<option>Cash</option>
+<option>Online</option>
+</select>
+
+<label>Collection Amount *</label>
+<input id="collectionAmount" type="number" placeholder="Enter Amount">
+
+<label>Transaction Reference</label>
+<input id="transactionRef" placeholder="UTR / Reference Number">
+
+<label>Remarks</label>
+<input id="collectionRemarks" placeholder="Optional Remarks">
+
+<button class="primary" onclick="saveCollection()">Save Collection</button>
+<button class="secondary" onclick="goHome()">Back</button>
+</section>
+
+<!-- REPORTS -->
+<section class="card hidden" id="reportsPage">
+<h2>Reports</h2>
+<div class="stats">
+<div class="stat"><span>Total Members</span><strong id="reportMembers">0</strong></div>
+<div class="stat"><span>Total Centers</span><strong id="reportCenters">0</strong></div>
+<div class="stat"><span>Total Collection</span><strong id="reportCollection">₹0</strong></div>
+<div class="stat"><span>Transactions</span><strong id="reportTransactions">0</strong></div>
+</div>
+<h3 style="margin-top:18px">Recent Collections</h3>
+<div id="collectionList"></div>
+<button class="secondary" onclick="goHome()">Back</button>
+</section>
+
+<!-- ADMIN SETTINGS -->
+<section class="card hidden" id="settingsPage">
+<h2>Company Settings</h2>
 
 <label>Company Name</label>
 <input id="newCompanyName" placeholder="Enter Company Name">
@@ -74,207 +255,264 @@ button{background:#164b83;color:white;border:0;padding:12px 16px;border-radius:8
 <label>Company Logo</label>
 <input id="newLogo" type="file" accept="image/*">
 
-<button onclick="saveCompany()">Save Changes</button>
-<button class="secondary" onclick="backDashboard()">Back</button>
-<p class="small">Company details are currently saved in this browser only. Cloud-wide updates will be added later.</p>
+<button class="primary" onclick="saveSettings()">Save Settings</button>
+<button class="secondary" onclick="goHome()">Back</button>
+<p class="note">Demo settings are saved in this browser only.</p>
 </section>
 
-<section class="card hidden" id="users">
+<!-- ADMIN USER MANAGEMENT -->
+<section class="card hidden" id="usersPage">
 <h2>User Management</h2>
 
-<label>User ID</label>
-<input id="newUserId" placeholder="Enter User ID">
+<label>Employee ID</label>
+<input id="newUserId" placeholder="Enter Employee ID">
 
-<label>User Role</label>
+<label>Role</label>
 <select id="newUserRole">
 <option>Staff / RO</option>
 <option>Manager</option>
 <option>Accounts Team</option>
 </select>
 
-<button onclick="createUser()">Create User</button>
-
-<div id="userList"></div>
-<button class="secondary" onclick="backDashboard()">Back</button>
+<button class="primary" onclick="createUser()">Create User</button>
+<div id="usersList"></div>
+<button class="secondary" onclick="goHome()">Back</button>
 </section>
 
 </main>
 
+<nav class="bottom hidden" id="bottomNav">
+<button onclick="goHome()">⌂<br>Home</button>
+<button onclick="openPage('centerListPage')">▦<br>Centers</button>
+<button onclick="openPage('membersPage')">♙<br>Members</button>
+<button onclick="openPage('reportsPage')">▥<br>Reports</button>
+<button onclick="logout()">↪<br>Logout</button>
+</nav>
+
 <script>
-let currentRole = "";
+let role="";
+const pages=["dashboard","centerPage","centerListPage","memberPage","membersPage","collectionPage","reportsPage","settingsPage","usersPage"];
 
+function getData(key){
+ return JSON.parse(localStorage.getItem(key)||"[]");
+}
+function setData(key,value){
+ localStorage.setItem(key,JSON.stringify(value));
+}
+function hidePages(){
+ pages.forEach(id=>document.getElementById(id).classList.add("hidden"));
+}
 function login(){
- const id=document.getElementById("userId").value.trim();
- const pass=document.getElementById("password").value;
- const role=document.getElementById("role").value;
+ const id=document.getElementById("employeeId").value.trim();
+ const pass=document.getElementById("loginPassword").value;
+ if(!id||!pass){alert("Enter Employee ID and Password.");return;}
 
- if(!id || !pass){
-  alert("Please enter User ID and Password.");
-  return;
- }
-
- currentRole=role;
- document.getElementById("loginBox").classList.add("hidden");
+ role=document.getElementById("loginRole").value;
+ document.getElementById("loginPage").classList.add("hidden");
  document.getElementById("dashboard").classList.remove("hidden");
- document.getElementById("welcome").innerText=role+" Dashboard";
-
- const menu=document.getElementById("menu");
- menu.innerHTML="";
-
- if(role==="Admin"){
-  addMenu("Company Settings","settings");
-  addMenu("Create User","users");
-  addMenu("Manage Users","users");
-  addMenu("Loan Settings","demo");
-  addMenu("Reports","demo");
-  addMenu("Branch Management","demo");
- }
- else if(role==="Staff / RO"){
-  addMenu("Create Member","demo");
-  addMenu("Create Center","demo");
-  addMenu("Loan Application","demo");
-  addMenu("Collection","demo");
-  addMenu("My Visits","demo");
-  addMenu("My Reports","demo");
- }
- else if(role==="Manager"){
-  addMenu("Member Verification","demo");
-  addMenu("Group Verification","demo");
-  addMenu("Approval History","demo");
-  addMenu("Team Reports","demo");
- }
- else{
-  addMenu("Loan Disbursement","demo");
-  addMenu("Payment Records","demo");
-  addMenu("Day Closing","demo");
-  addMenu("Accounts Reports","demo");
- }
+ document.getElementById("bottomNav").classList.remove("hidden");
+ document.getElementById("employeeName").innerText=id;
+ document.getElementById("employeeRole").innerText=role;
+ buildActions();
+ refreshDashboard();
 }
+function buildActions(){
+ const actions=document.getElementById("quickActions");
+ actions.innerHTML="";
+ let items=[];
 
-function addMenu(name,action){
- const btn=document.createElement("button");
- btn.innerText=name;
- btn.onclick=()=>{
-  if(action==="settings") openSettings();
-  else if(action==="users") openUsers();
-  else alert("This feature will be added in the next development stage.");
- };
- document.getElementById("menu").appendChild(btn);
-}
-
-function openSettings(){
- if(currentRole!=="Admin") return;
- document.getElementById("dashboard").classList.add("hidden");
- document.getElementById("settings").classList.remove("hidden");
- document.getElementById("newCompanyName").value=
- document.getElementById("companyName").innerText;
-}
-
-function saveCompany(){
- if(currentRole!=="Admin") return;
-
- const name=document.getElementById("newCompanyName").value.trim();
-
- if(name){
-  document.getElementById("companyName").innerText=name;
-  localStorage.setItem("companyName",name);
- }
-
- const file=document.getElementById("newLogo").files[0];
-
- if(file){
-  if(file.size>1500000){
-   alert("Please select a logo smaller than 1.5 MB.");
-   return;
-  }
-
-  const reader=new FileReader();
-  reader.onload=e=>{
-   document.getElementById("companyLogo").src=e.target.result;
-   localStorage.setItem("companyLogo",e.target.result);
-   alert("Company Profile Updated Successfully.");
-  };
-  reader.readAsDataURL(file);
+ if(role==="Staff / RO"){
+  items=[["👥","Create Group Center","centerPage"],["👤","Add Member","memberPage"],["💰","Collection Entry","collectionPage"],["📊","Reports","reportsPage"]];
+ }else if(role==="Admin"){
+  items=[["⚙️","Company Settings","settingsPage"],["👥","User Management","usersPage"],["🏢","Centers","centerListPage"],["📊","Reports","reportsPage"]];
+ }else if(role==="Manager"){
+  items=[["👥","Member Verification","membersPage"],["🏢","Group Verification","centerListPage"],["📊","Reports","reportsPage"]];
  }else{
-  alert("Company Profile Updated Successfully.");
- }
-}
-
-function openUsers(){
- if(currentRole!=="Admin") return;
- document.getElementById("dashboard").classList.add("hidden");
- document.getElementById("users").classList.remove("hidden");
- showUsers();
-}
-
-function createUser(){
- if(currentRole!=="Admin") return;
-
- const id=document.getElementById("newUserId").value.trim();
- const role=document.getElementById("newUserRole").value;
-
- if(!id){
-  alert("Please enter User ID.");
-  return;
+  items=[["💳","Collection Records","reportsPage"],["📊","Accounts Reports","reportsPage"]];
  }
 
- const data=JSON.parse(localStorage.getItem("demoUsers")||"[]");
-
- if(data.some(u=>u.id===id)){
-  alert("User ID already exists.");
-  return;
- }
-
- data.push({id:id,role:role,active:true});
- localStorage.setItem("demoUsers",JSON.stringify(data));
-
- document.getElementById("newUserId").value="";
- showUsers();
- alert("Demo User Created.");
-}
-
-function showUsers(){
- const data=JSON.parse(localStorage.getItem("demoUsers")||"[]");
- const list=document.getElementById("userList");
- list.innerHTML="<h3>Registered Demo Users</h3>";
-
- data.forEach((u,i)=>{
-  const row=document.createElement("div");
-  row.className="card";
-  row.innerText=u.id+" | "+u.role+" | "+(u.active?"Active":"Inactive");
-
-  const btn=document.createElement("button");
-  btn.innerText=u.active?"Deactivate":"Activate";
-  btn.onclick=()=>{
-   data[i].active=!data[i].active;
-   localStorage.setItem("demoUsers",JSON.stringify(data));
-   showUsers();
-  };
-  row.appendChild(btn);
-  list.appendChild(row);
+ items.forEach(item=>{
+  const b=document.createElement("button");
+  b.className="action";
+  b.innerHTML="<span>"+item[0]+"</span><small>"+item[1]+"</small>";
+  b.onclick=()=>openPage(item[2]);
+  actions.appendChild(b);
  });
 }
+function openPage(id){
+ if(id==="settingsPage" && role!=="Admin"){alert("Admin access only.");return;}
+ if(id==="usersPage" && role!=="Admin"){alert("Admin access only.");return;}
+ hidePages();
+ document.getElementById(id).classList.remove("hidden");
+ document.getElementById("bottomNav").classList.remove("hidden");
 
-function backDashboard(){
- document.getElementById("settings").classList.add("hidden");
- document.getElementById("users").classList.add("hidden");
+ if(id==="centerListPage") showCenters();
+ if(id==="membersPage") showMembers();
+ if(id==="memberPage") fillCenterOptions();
+ if(id==="collectionPage") fillMemberOptions();
+ if(id==="reportsPage") showReports();
+ if(id==="usersPage") showUsers();
+}
+function goHome(){
+ hidePages();
  document.getElementById("dashboard").classList.remove("hidden");
+ document.getElementById("bottomNav").classList.remove("hidden");
+ refreshDashboard();
 }
+function saveCenter(){
+ const name=document.getElementById("centerName").value.trim();
+ const branch=document.getElementById("branchName").value.trim();
+ const ro=document.getElementById("roName").value.trim();
+ const village=document.getElementById("villageName").value.trim();
 
+ if(!name||!branch||!ro||!village){alert("Please complete all required fields.");return;}
+
+ const data=getData("centers");
+ const id="C"+String(data.length+1).padStart(6,"0");
+ data.push({
+  id,name,branch,ro,village,
+  day:document.getElementById("meetingDay").value,
+  time:document.getElementById("meetingTime").value,
+  address:document.getElementById("centerAddress").value
+ });
+ setData("centers",data);
+ alert("Center saved: "+id);
+ document.getElementById("centerName").value="";
+ goHome();
+}
+function showCenters(){
+ const data=getData("centers");
+ document.getElementById("centerList").innerHTML=data.length?data.map(c=>
+  `<div class="item"><div><b>${safe(c.id)} - ${safe(c.name)}</b><br><small>${safe(c.village)} | ${safe(c.branch)}</small><br><small>${safe(c.day)} ${safe(c.time)}</small></div><span class="tag">Active</span></div>`
+ ).join(""):"No centers created yet.";
+}
+function fillCenterOptions(){
+ const data=getData("centers");
+ document.getElementById("memberCenter").innerHTML=data.map(c=>`<option value="${safe(c.id)}">${safe(c.name)} (${safe(c.id)})</option>`).join("");
+}
+function saveMember(){
+ const name=document.getElementById("memberName").value.trim();
+ const mobile=document.getElementById("memberMobile").value.trim();
+ const center=document.getElementById("memberCenter").value;
+ if(!name||!/^[0-9]{10}$/.test(mobile)||!center){alert("Enter valid member details and create a center first.");return;}
+
+ const data=getData("members");
+ const id="G"+String(data.length+1).padStart(6,"0");
+ data.push({
+  id,name,mobile,center,
+  loanType:document.getElementById("loanType").value,
+  amount:Number(document.getElementById("loanAmount").value)||0,
+  frequency:document.getElementById("emiFrequency").value
+ });
+ setData("members",data);
+ alert("Member saved: "+id);
+ document.getElementById("memberName").value="";
+ document.getElementById("memberMobile").value="";
+ goHome();
+}
+function showMembers(){
+ const data=getData("members");
+ const q=(document.getElementById("memberSearch").value||"").toLowerCase();
+ const filtered=data.filter(m=>(m.name+" "+m.id+" "+m.mobile).toLowerCase().includes(q));
+ document.getElementById("membersList").innerHTML=filtered.length?filtered.map(m=>
+  `<div class="item"><div><b>${safe(m.name)}</b><br><small>${safe(m.id)} | ${safe(m.mobile)}</small><br><small>${safe(m.loanType)} | ₹${m.amount}</small></div><span class="tag">Registered</span></div>`
+ ).join(""):"No members found.";
+}
+function fillMemberOptions(){
+ const data=getData("members");
+ document.getElementById("collectionMember").innerHTML=data.map(m=>
+ `<option value="${safe(m.id)}">${safe(m.name)} (${safe(m.id)})</option>`).join("");
+}
+function saveCollection(){
+ const member=document.getElementById("collectionMember").value;
+ const amount=Number(document.getElementById("collectionAmount").value);
+ if(!member||!amount||amount<=0){alert("Select a member and enter a valid amount.");return;}
+
+ const data=getData("collections");
+ data.push({
+  member,amount,
+  mode:document.getElementById("paymentMode").value,
+  ref:document.getElementById("transactionRef").value,
+  remarks:document.getElementById("collectionRemarks").value,
+  date:new Date().toLocaleDateString()
+ });
+ setData("collections",data);
+ alert("Collection entry saved.");
+ document.getElementById("collectionAmount").value="";
+ goHome();
+}
+function showReports(){
+ const members=getData("members"),centers=getData("centers"),payments=getData("collections");
+ const total=payments.reduce((s,p)=>s+p.amount,0);
+ document.getElementById("reportMembers").innerText=members.length;
+ document.getElementById("reportCenters").innerText=centers.length;
+ document.getElementById("reportCollection").innerText="₹"+total.toLocaleString("en-IN");
+ document.getElementById("reportTransactions").innerText=payments.length;
+ document.getElementById("collectionList").innerHTML=payments.length?payments.slice().reverse().map(p=>
+ `<div class="item"><div><b>${safe(p.member)}</b><br><small>${safe(p.date)} | ${safe(p.mode)}</small></div><b>₹${p.amount.toLocaleString("en-IN")}</b></div>`
+ ).join(""):"No collection records yet.";
+}
+function refreshDashboard(){
+ const members=getData("members"),payments=getData("collections");
+ const total=payments.reduce((s,p)=>s+p.amount,0);
+ document.getElementById("memberCount").innerText=members.length;
+ document.getElementById("totalCollection").innerText="₹"+total.toLocaleString("en-IN");
+ document.getElementById("balanceDue").innerText="₹"+Math.max(0,25000-total).toLocaleString("en-IN");
+ const percent=Math.min(100,total/25000*100);
+ document.getElementById("progressBar").style.width=percent+"%";
+ document.getElementById("progressText").innerText=percent.toFixed(0)+"% Collection Progress";
+}
+function saveSettings(){
+ if(role!=="Admin")return;
+ const name=document.getElementById("newCompanyName").value.trim();
+ if(name){
+  localStorage.setItem("companyName",name);
+  document.getElementById("companyName").innerText=name;
+ }
+ const file=document.getElementById("newLogo").files[0];
+ if(file){
+  if(file.size>1000000){alert("Choose a logo under 1 MB.");return;}
+  const reader=new FileReader();
+  reader.onload=e=>{
+   localStorage.setItem("companyLogo",e.target.result);
+   document.getElementById("companyLogo").src=e.target.result;
+   alert("Company profile updated in this browser.");
+  };
+  reader.readAsDataURL(file);
+ }else alert("Company settings saved in this browser.");
+}
+function createUser(){
+ if(role!=="Admin")return;
+ const id=document.getElementById("newUserId").value.trim();
+ if(!id){alert("Enter Employee ID.");return;}
+ const data=getData("demoUsers");
+ if(data.some(u=>u.id===id)){alert("Employee ID already exists.");return;}
+ data.push({id,role:document.getElementById("newUserRole").value,active:true});
+ setData("demoUsers",data);
+ document.getElementById("newUserId").value="";
+ showUsers();
+}
+function showUsers(){
+ const data=getData("demoUsers");
+ document.getElementById("usersList").innerHTML=data.map(u=>
+ `<div class="item">${safe(u.id)} | ${safe(u.role)} | ${u.active?"Active":"Inactive"}</div>`
+ ).join("")||"No users created.";
+}
+function safe(value){
+ return String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
 function logout(){
- currentRole="";
+ role="";
+ hidePages();
  document.getElementById("dashboard").classList.add("hidden");
- document.getElementById("settings").classList.add("hidden");
- document.getElementById("users").classList.add("hidden");
- document.getElementById("loginBox").classList.remove("hidden");
- document.getElementById("password").value="";
+ document.getElementById("bottomNav").classList.add("hidden");
+ document.getElementById("loginPage").classList.remove("hidden");
+ document.getElementById("loginPassword").value="";
 }
-
 const savedName=localStorage.getItem("companyName");
-if(savedName) document.getElementById("companyName").innerText=savedName;
-
+if(savedName)document.getElementById("companyName").innerText=savedName;
 const savedLogo=localStorage.getItem("companyLogo");
-if(savedLogo) document.getElementById("companyLogo").src=savedLogo;
+if(savedLogo)document.getElementById("companyLogo").src=savedLogo;
 </script>
 
 </body>
