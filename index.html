@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b52">
+<title>Lakshya Fincorp</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f1f4f9;color:#172b4d;font-family:Arial,sans-serif}
+header{background:#102b52;color:white;padding:20px}
+.brand{font-size:22px;font-weight:bold}
+header small{color:#cbd9ee}
+main{max-width:650px;margin:auto;padding:18px}
+.card{background:white;border-radius:14px;padding:22px;box-shadow:0 3px 15px #102b5212}
+h2{text-align:center;margin-top:0}
+label{display:block;font-weight:bold;margin:16px 0 7px}
+input,select{width:100%;padding:14px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;background:white}
+button{border:0;border-radius:8px;padding:14px;background:#1769c2;color:white;font-size:16px;font-weight:bold;cursor:pointer}
+.login-button{width:100%;margin-top:22px}
+.hidden{display:none!important}
+.welcome{background:#102b52;color:white;padding:22px;border-radius:14px;margin-bottom:18px}
+.welcome h2{text-align:left;margin:0 0 8px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px}
+.stat{background:white;padding:17px;border-radius:12px}
+.stat strong{display:block;font-size:22px;color:#1769c2;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.module{background:white;padding:19px 12px;border-radius:12px;text-align:center;box-shadow:0 2px 10px #102b5210;min-height:105px}
+.module b{display:block;margin-top:10px;font-size:14px}
+.module button{background:transparent;color:#172b4d;width:100%;padding:0}
+.logout{background:#b42318;margin-top:22px;width:100%}
+footer{text-align:center;color:#718096;font-size:12px;padding:24px}
+@media(min-width:550px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="brand">LAKSHYA FINCORP</div>
+<small>Private Limited | Loan Management System</small>
+</header>
+
+<main>
+<section id="loginPage" class="card">
+<h2>Welcome Back</h2>
+<p style="text-align:center;color:#64748b">Login to Continue</p>
+
+<form id="loginForm">
+<label>User ID</label>
+<input id="userId" placeholder="Enter User ID" required>
+
+<label>Password</label>
+<input id="password" type="password" placeholder="Enter Password" required>
+
+<label>Select Department</label>
+<select id="role" required>
+<option value="">Select Role</option>
+<option>Admin</option>
+<option>Staff / RO</option>
+<option>Manager</option>
+<option>Accounts Team</option>
+</select>
+
+<button class="login-button" type="submit">LOGIN</button>
+</form>
+</section>
+
+<section id="dashboard" class="hidden">
+<div class="welcome">
+<h2 id="roleTitle">Dashboard</h2>
+<div id="userWelcome">Welcome</div>
+</div>
+
+<div class="stats">
+<div class="stat">Total Members<strong>--</strong></div>
+<div class="stat">Active Loans<strong>--</strong></div>
+<div class="stat">Today's Collection<strong>--</strong></div>
+<div class="stat">Pending Work<strong>--</strong></div>
+</div>
+
+<h3>Application Modules</h3>
+<div id="moduleGrid" class="grid"></div>
+
+<button class="logout" onclick="logout()">LOGOUT</button>
+</section>
+</main>
+
+<footer>© Lakshya Fincorp Pvt. Ltd.</footer>
+
+<script>
+const modules = {
+"Admin":[
+["👥","User Management"],
+["🏢","Branch Management"],
+["🛡️","Role & Permissions"],
+["💰","Loan Settings"],
+["📊","All Reports"],
+["📋","Audit Log"]
+],
+"Staff / RO":[
+["👤","Member Registration"],
+["🏘️","Center Management"],
+["👥","Group Management"],
+["📝","Loan Application"],
+["📍","Field Visits"],
+["💵","EMI Collection"],
+["📞","PTP Management"]
+],
+"Manager":[
+["👤","Member Verification"],
+["👥","Group Verification"],
+["✅","Loan Approvals"],
+["❌","Rejected Cases"],
+["📝","Approval Remarks"],
+["📊","Team Reports"]
+],
+"Accounts Team":[
+["💳","Loan Disbursement"],
+["💵","Payment Entry"],
+["🧾","Receipt Management"],
+["🏦","Cash Deposit"],
+["📒","Day Closing"],
+["📊","Accounts Reports"]
+]
+};
+
+document.getElementById("loginForm").addEventListener("submit",function(e){
+e.preventDefault();
+
+const user=document.getElementById("userId").value.trim();
+const role=document.getElementById("role").value;
+
+if(!user || !role){
+alert("Please enter User ID and select role.");
+return;
+}
+
+document.getElementById("loginPage").classList.add("hidden");
+document.getElementById("dashboard").classList.remove("hidden");
+document.getElementById("roleTitle").textContent=role+" Dashboard";
+document.getElementById("userWelcome").textContent="Welcome, "+user;
+
+const grid=document.getElementById("moduleGrid");
+grid.innerHTML="";
+
+modules[role].forEach(function(item){
+const div=document.createElement("div");
+div.className="module";
+const button=document.createElement("button");
+button.innerHTML="<span style='font-size:27px'>"+item[0]+"</span><b>"+item[1]+"</b>";
+button.onclick=function(){
+alert(item[1]+" module will be developed in the next phase.");
+};
+div.appendChild(button);
+grid.appendChild(div);
+});
+});
+
+function logout(){
+document.getElementById("dashboard").classList.add("hidden");
+document.getElementById("loginPage").classList.remove("hidden");
+document.getElementById("loginForm").reset();
+}
+</script>
+</body>
+</html>
